@@ -4,6 +4,7 @@
 #weight=60
 #weight=input("몸무게를 입력하시오.")
 #weight=int(weight)
+#주석이다.
 
 height_cm=int(input("키를 입력하시오."))
 weight=int(input("몸무게를 입력하시오."))
