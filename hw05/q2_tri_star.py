@@ -1,3 +1,7 @@
-print(f"  *  ")
-print(f" * * ")
-print(f"* * *")
+print("  *  ")
+print(" * * ")
+print("* * *")
+
+print("*")
+print("*"*2)
+print("*"*3)
