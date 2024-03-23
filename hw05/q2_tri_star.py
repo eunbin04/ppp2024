@@ -1,1 +1,3 @@
-print(f"x")
+print(f"  *  ")
+print(f" * * ")
+print(f"* * *")
