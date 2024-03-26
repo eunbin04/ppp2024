@@ -8,5 +8,3 @@ for fruit in cal:
         total_cal = cal[fruit] * eat_gram
 
 print(f"총 칼로리는 {total_cal}입니다.")
-
-#에러

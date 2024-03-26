@@ -12,6 +12,4 @@ for eat_fruit in eat_fruits:
             total_cal += cal[fruit] * eat_grams[idx]
     idx+=1
 
-print(f"총 칼로리는 {total_cal}입니다.")
-
-#에러
+print(f"총 칼로리는 {total_cal:.3f}입니다.")
