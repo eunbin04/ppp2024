@@ -1,11 +1,10 @@
 def total_cal(eat_gram):
     eat_gram={"hanlabog", "strawberry", "banana", "mango", "grape"}
-    eat_fruit={"hanlabog", "strawberry", "banana", "mango", "grape"}
-    cal={"hanlabog":0.5, "strawberry":0.34, "banana":0.77, "mango":0.61, "grape":0.6}
+    fruit={"hanlabog", "strawberry", "banana", "mango", "grape"}
+    calories={"hanlabog":0.5, "strawberry":0.34, "banana":0.77, "mango":0.61, "grape":0.6}
     
-    for fruit in cal:
-        if eat_fruit == fruit:
-            total_cal = cal[fruit] * eat_gram
+    for fruit in calories:
+        total_cal = total_cal+calories[fruit] * [eat_gram]
 
 def main():
     hanlabog=int(input("한라봉의 섭취량을 입력하시오."))
