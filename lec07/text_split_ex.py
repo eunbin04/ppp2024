@@ -7,5 +7,8 @@ def main():
     print(sum(results))
     print(max(results))
 
-if __name__=="__main__()":
+    results2=[int(x) for x in input_text.split(",")]
+    print(results2)
+
+if __name__=="__main__":
     main()
