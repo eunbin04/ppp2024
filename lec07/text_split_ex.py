@@ -7,8 +7,8 @@ def main():
     print(sum(results))
     print(max(results))
 
-    results2=[int(x) for x in input_text.split(",")]
-    print(results2)
+    #results=[int(x) for x in input_text.split(",")]
+    print(results)
 
 if __name__=="__main__":
     main()
