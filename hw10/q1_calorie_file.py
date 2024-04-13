@@ -17,8 +17,8 @@ def read_cal_db(filename):
 
 def main():
     fruits_calorie_dic=read_cal_db("hw10/my_fruit_calorie.csv")
-    fruits_yummy = {"딸기": 300, "고구마": 150}
-    print(total_calorie(fruits_yummy, fruits_calorie_dic))
+    fruits_eaten = {"딸기": 300, "고구마": 150}
+    print(f"섭취한 총 칼로리양은 {total_calorie(fruits_eaten, fruits_calorie_dic)}㎉입니다.")
 
 if __name__ == "__main__":
     main()

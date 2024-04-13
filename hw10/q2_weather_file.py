@@ -1,4 +1,4 @@
-#평균 온도
+#평균 기온
 def read_tavg(filename):
     results=[]
     with open(filename) as f:
@@ -26,7 +26,7 @@ def read_rainfall(filename):
 def more(rainfall):
     list=[]
     for rain in rainfall:
-        if rain>=0.5:
+        if rain>=5:
             list.append(rain)
     return list
 
