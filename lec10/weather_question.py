@@ -48,6 +48,9 @@ def main():
     rainfall=read_col(weather_filename, "rainfall")
     tmax=read_col(weather_filename, "tmax")
 
-    print(f"최장연속 강우일수는 {longest_rainday(rainfall):.1f}일입니다.")
+    print(f"최장연속 강우일수는 {longest_rainday(rainfall)}일입니다.")
     print(f"최대 강우량은 {max_rainfall_event(rainfall):.1f}mm입니다.")
-    print(f"가장 더운날 top3는 {top_rank(tmax,3)}일입니다.")
+    print(f"가장 더운날 top3는 {top_rank(tmax,3)}℃ 입니다.")
+
+if __name__ == "__main__":
+    main()
