@@ -27,9 +27,6 @@ def sumifs(rainfall, months, conditions):
         month=months[i]
         if month in conditions:
             total += rain
-    #for rain, month in zip(rainfall, months):
-    #    if month in conditions:
-    #        total+=rain
     return total
 
 def get_data_ifs(values, conditions, criteria):
@@ -39,9 +36,9 @@ def get_data_ifs(values, conditions, criteria):
             dataset.append(rain)
     return dataset
 
-def read_col_year(weather_filename1, col_name, year):
+def read_col_year(weather_filename, col_name, year):
     dataset=[]
-    with open(weather_filename1) as f:
+    with open(weather_filename) as f:
         lines=f.readlines()
         header=[x.strip() for x in lines[0].split(",")]
         col_idx=header.index(col_name)
@@ -56,14 +53,15 @@ def main():
     weather_filename="lec10/weather(146)_2022-2022.csv"
     rainfall=read_col(weather_filename, "rainfall")
     months=read_col_int(weather_filename, "month")
-    print(f"여름철 강수량은 {sumifs(rainfall, months, [6,7,8]):.1f}mm입니다.")
+    print(f"여름철(6월-8월) 강수량은 {sumifs(rainfall, months, [6,7,8]):.1f}mm입니다.")
 
-    weather_filename1="lec10/weather(146)_2001-2022.csv"
-    rainfall_all=read_col(weather_filename1, "rainfall")
-    year_all=read_col_int(weather_filename1, "year")
+    weather_filename="lec10/weather(146)_2001-2022.csv"
+    rainfall_all=read_col(weather_filename, "rainfall")
+    year_all=read_col_int(weather_filename, "year")
     rainfall_2021=get_data_ifs(rainfall_all, year_all, 2021)
-    #rainfall_2021=read_col_year(weather_filename1, "rainfall", 2021)
-    print(f"2021년과 2022년의 총 강수량은 {sum(rainfall_2021):.1f}mm입니다.")
+    rainfall_2022=get_data_ifs(rainfall_all, year_all, 2022)
+    all_rainfall=rainfall_2022+rainfall_2021
+    print(f"2021년과 2022년의 총 강수량은 {sum(all_rainfall):.1f}mm입니다.")
 
 
 if __name__ == "__main__":
