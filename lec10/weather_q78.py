@@ -63,7 +63,7 @@ def main():
     year_all=read_col_int(weather_filename1, "year")
     rainfall_2021=get_data_ifs(rainfall_all, year_all, 2021)
     #rainfall_2021=read_col_year(weather_filename1, "rainfall", 2021)
-    print(f"2021년과 2022년의 총 강수량은 {sum(rainfall_2021):.1f}mm입니다.")
+    print(f"2021년의 총 강수량은 {sum(rainfall_2021):.1f}mm입니다.")
 
 
 if __name__ == "__main__":
