@@ -36,19 +36,6 @@ def get_data_ifs(values, conditions, criteria):
             dataset.append(rain)
     return dataset
 
-def read_col_year(weather_filename, col_name, year):
-    dataset=[]
-    with open(weather_filename) as f:
-        lines=f.readlines()
-        header=[x.strip() for x in lines[0].split(",")]
-        col_idx=header.index(col_name)
-        for line in lines[1:]:
-            tokens=line.split(",")
-            y=int(tokens[0])
-            if y==year:
-                dataset.append(int(tokens[col_idx]))
-    return dataset
-
 def main():
     weather_filename="lec10/weather(146)_2022-2022.csv"
     rainfall=read_col(weather_filename, "rainfall")
