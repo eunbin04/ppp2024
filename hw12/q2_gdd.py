@@ -15,8 +15,12 @@ def main():
     filename="hw12/weather(146)_2001-2022.csv"
     tavg=read_col(filename,"tavg")
     months=read_col_int(filename, "month")
+    years=read_col_int(filename, "year")
     
-    print(f"GDD는 {gdd_season(tavg, months):.1f}도일입니다.")
+    year_idx=0
+
+    for years in range(2001, 2022):
+        print(f"년도: {years[year_idx]} GDD: {gdd_season(tavg, months):.1f}도일입니다.")
 
 if __name__=="__main__":
     main()

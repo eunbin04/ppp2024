@@ -15,13 +15,15 @@ def main():
     max_idx=0
     max_diff_temp=0
     i=0
-    for td in temp_diff:
-        if max_diff_temp<td:
-            max_diff_temp=td
+    last_year=0
+
+    for i in range(len(temp_diff)):
+        if years[i]!=last_year:
+            last_year=years[i]
+            max_diff_temp=temp_diff[i]
             max_idx=i
+            print(f"날짜: {years[max_idx]}/{months[max_idx]}/{days[max_idx]} 최대일교차: {max_diff_temp:.1f}℃")
         i+=1
-
-    print(f"날짜: {years[max_idx]}/{months[max_idx]}/{days[max_idx]} 최대일교차: {max(temp_diff):.1f}℃")
-
+            
 if __name__=="__main__":
     main()
