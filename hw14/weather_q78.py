@@ -6,7 +6,10 @@ def read_col(filename, col_name):
         col_idx=header.index(col_name)
         for line in lines[1:]:
             tokens=line.split(",")
-            dataset.append(float(tokens[col_idx]))
+            if tokens[col_idx].strip():
+                dataset.append(float(tokens[col_idx]))
+            else:
+                dataset.append(None)
     return dataset
 
 def read_col_int(filename, col_name):
@@ -17,5 +20,8 @@ def read_col_int(filename, col_name):
         col_idx=header.index(col_name)
         for line in lines[1:]:
             tokens=line.split(",")
-            dataset.append(int(tokens[col_idx]))
+            if tokens[col_idx].strip():
+                dataset.append(int(tokens[col_idx]))
+            else:
+                dataset.append(None)
     return dataset

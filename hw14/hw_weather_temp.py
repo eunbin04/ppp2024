@@ -17,7 +17,8 @@ def main():
     URL="https://data.kma.go.kr/stcs/grnd/downloadGrndTaList.do?fileType=csv&pgmNo=70&menuNo=432&serviceSe=F00101&stdrMg=99999&startDt=19040101&endDt=20240422&taElement=MIN&taElement=AVG&taElement=MAX&stnGroupSns=&selectType=1&mddlClssCd=SFC01&dataFormCd=F00501&dataTypeCd=standard&startDay=19040101&startYear=1904&endDay=20240422&endYear=2024&startMonth=01&endMonth=12&sesnCd=0&txtStnNm=%EC%A0%84%EC%A3%BC&stnId=146&areaId=&gFontSize="
     filename="./hw14/jeonju_all.csv"
     download(filename, URL)
-
+    
+    from weather_q78 import read_col, read_col_int
     tmax=read_col(filename, "tmax")
     tmin=read_col(filename, "tmin")
     tmax_date=read_col_int(filename, "date")
