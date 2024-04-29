@@ -18,7 +18,6 @@ def main():
     filename="./hw14/jeonju_all.csv"
     download(filename, URL)
     
-    from weather_q78 import read_col, read_col_int
     tmax=read_col(filename, "tmax")
     tmin=read_col(filename, "tmin")
     tmax_date=read_col_int(filename, "date")
