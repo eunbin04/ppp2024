@@ -1,13 +1,13 @@
 import requests
 
-def submit(name: str, rain_max: float, rain_max_date: str, gap_max: float, gap_max_date: str) -> None:
+def submit(name: str, tmax: float, tmax_date: str, tdiff_max: float, tdiff_max_date: str) -> None:
     URL = "https://script.google.com/macros/s/AKfycbybB2LSi0F85FkC4KmI0XgjMqvhn7-6eJjZQi0oucbgbEvwDmNVRoyMMnd5UyezpqJp/exec"
     PARAMS = {
         '제출자': name,
-        '최대강수량': rain_max,
-        '최대강수량날짜': rain_max_date,
-        '최대일교차': gap_max,
-        '최대일교차날짜': gap_max_date,
+        '최고온도': tmax,
+        '최고온도날짜': tmax_date,
+        '최대일교차': tdiff_max,
+        '최대일교차날짜': tdiff_max_date,
     }
 
     # sending get request and saving the response as response object

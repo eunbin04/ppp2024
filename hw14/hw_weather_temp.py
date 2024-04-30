@@ -9,19 +9,20 @@ def download(filename, url):
     if not os.path.exists(filename):
         with open(filename,"w") as f:
             res =requests.get(url)
-            f.write(res.text)
+            f.write(res.text.replace("\r", ""))
 
-from weather_q78 import read_col, read_col_int
+
+from weather_read import read_col, read_col_int
 
 def main():
     URL="https://data.kma.go.kr/stcs/grnd/downloadGrndTaList.do?fileType=csv&pgmNo=70&menuNo=432&serviceSe=F00101&stdrMg=99999&startDt=19040101&endDt=20240422&taElement=MIN&taElement=AVG&taElement=MAX&stnGroupSns=&selectType=1&mddlClssCd=SFC01&dataFormCd=F00501&dataTypeCd=standard&startDay=19040101&startYear=1904&endDay=20240422&endYear=2024&startMonth=01&endMonth=12&sesnCd=0&txtStnNm=%EC%A0%84%EC%A3%BC&stnId=146&areaId=&gFontSize="
     filename="./hw14/jeonju_all.csv"
     download(filename, URL)
     
-    tmax=read_col(filename, "tmax")
-    tmin=read_col(filename, "tmin")
-    tmax_date=read_col_int(filename, "date")
-    tdiff_max_date=read_col_int(filename, "date")
+    tmax=read_col(filename, "최고기온")
+    tmin=read_col(filename, "최저기온")
+    tmax_date=read_col_int(filename, "날짜")
+    tdiff_max_date=read_col_int(filename, "날짜")
 
     temp_diff=[]
     for tx, tn in zip(tmax, tmin):
@@ -37,11 +38,8 @@ def main():
         i+=1
     tdiff_max=max(temp_diff)
     
-    #tmax, tmax_date=38,"2021-08-12"
-    #tdiff_max, tdiff_max_date=28.5, "1989-01-09"
-    #hw_submission.submit("박은빈", tmax, tmax_date, tdiff_max, tdiff_max_date)
-    
-    print(f"{max(tmax):.2f}℃ , {tmax_date[max_idx]} {tdiff_max:.2f}℃ , {tdiff_max_date[max_idx]}")
+
+    hw_submission.submit("박은빈", max(tmax), tmax_date[max_idx], tdiff_max, tdiff_max_date[max_idx])
 
 if __name__=="__main__":
     main()
