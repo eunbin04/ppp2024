@@ -1,28 +1,22 @@
 def text2list(input_text):
     tokens = input_text.strip().split()
-    results=[]
+    results = []
     for token in tokens:
-        try:
-            num=int(token)
-            if num>0:
-                results.append(num)
-        except ValueError:
-            pass
+        results.append(token)
     return results
 
 def count(nums):
     natural_nums=0
     i=0
     while i<len(nums):
-        j=0
-        while j<len(nums[i]):
-            try:
-                num=int(nums[i][j])
+        try:
+            for lines in nums[i]:
+                num=int(lines)
                 if num>0:
                     natural_nums+=1
-            except (ValueError, TypeError):
-                pass
-            j+=1
+                    break
+        except ValueError:
+            pass
         i+=1
     return natural_nums
         
@@ -31,16 +25,13 @@ def average(nums):
     natural_nums=0
     i=0
     while i<len(nums):
-        j=0
-        while j<len(nums[i]):
-            try:
-                num=int(nums[i][j])
-                if num>0:
-                    sum_nums+=num
-                    natural_nums+=1
-            except (ValueError, TypeError):
-                pass
-            j+=1
+        try:
+            num=int(nums[i])
+            if num>0:
+                sum_nums+=num
+                natural_nums+=1
+        except ValueError:
+            pass
         i+=1
     if natural_nums==0:
         return 0
@@ -54,7 +45,7 @@ def main():
         if input_text=='-1':
             break
         nums=text2list(input_text)
-        input_list.append(nums)
+        input_list.extend(nums)
 
     print(f"입력된 값은 {input_list}입니다. 총 {count(input_list)}개의 자연수가 입력되었고, 평균은 {average(input_list):.1f}입니다.")
 
