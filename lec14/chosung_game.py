@@ -1,12 +1,12 @@
 def get_chosung(text):
-    Chosung_list=['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ' 'ㅍ','ㅎ']
+    Chosung_list=['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ','ㅎ']
 
     chosung=[]
     for gulja in text:
         #print(gulja, (ord(gulja)-ord('가'))//588, (ord(gulja)-ord('가'))%588)
         chosung.append(Chosung_list[(ord(gulja)-ord('가'))//588])
 
-    return "ㅍㅇㅅ"
+    return chosung
 
 def main():
 
