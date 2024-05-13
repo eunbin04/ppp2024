@@ -20,7 +20,7 @@ def count(nums):
         i+=1
     return natural_nums
         
-def average(nums):
+def avg(nums):
     sum_nums=0
     natural_nums=0
     i=0
@@ -47,7 +47,7 @@ def main():
         nums=text2list(input_text)
         input_list.append(nums)
 
-    print(f"입력된 값은 {input_list}입니다. 총 {count(input_list)}개의 자연수가 입력되었고, 평균은 {average(input_list):.1f}입니다.")
+    print(f"입력된 값은 {input_list}입니다. 총 {count(input_list)}개의 자연수가 입력되었고, 평균은 {avg(input_list):.1f}입니다.")
 
 if __name__=="__main__":
     main()
