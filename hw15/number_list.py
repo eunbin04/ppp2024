@@ -1,6 +1,6 @@
 def text2list(input_text):
-    tokens = input_text.strip().split()
-    results = []
+    tokens=input_text.strip().split()
+    results=[]
     for token in tokens:
         results.append(token)
     return results
