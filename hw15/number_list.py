@@ -45,7 +45,7 @@ def main():
         if input_text=='-1':
             break
         nums=text2list(input_text)
-        input_list.extend(nums)
+        input_list.append(nums)
 
     print(f"입력된 값은 {input_list}입니다. 총 {count(input_list)}개의 자연수가 입력되었고, 평균은 {average(input_list):.1f}입니다.")
 
