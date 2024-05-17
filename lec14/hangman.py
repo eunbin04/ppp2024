@@ -2,7 +2,7 @@ def check(shown_answer, hidden_answer,x):
     results=[]
 
     for shown_text, hidden_text in zip (shown_answer, hidden_answer):
-        if shown_text=="x":
+        if shown_text=="_":
             if x==hidden_text:
                 results.append(x)
             else:
@@ -13,11 +13,11 @@ def check(shown_answer, hidden_answer,x):
 
 def main():
     hidden_answer = "apple"
-    shown_answer = "_" *len(hidden_answer)   # "_ _ _ _ _"
+    shown_answer = "_" *len(hidden_answer)
     trial=3
 
     while True:
-        x=input(f"({shown_answer}, 목숨={trial})글자를 입력하시오=>")
+        x=input(f"({' '.join(shown_answer)}, 목숨={trial})글자를 입력하시오=>")
         if x in hidden_answer:
             shown_answer=check(shown_answer, hidden_answer, x)
         else:
