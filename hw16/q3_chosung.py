@@ -8,7 +8,7 @@ def get_chosung(text):
 
 def main():
 
-    hidden_answer="프원실"
+    hidden_answer=input("초성퀴즈로 출제할 단어를 입력해주세요:")
     problem=get_chosung(hidden_answer)
     print(f"문제입니다. 주어진 초성은 '{''.join(problem)}'입니다.")
 
