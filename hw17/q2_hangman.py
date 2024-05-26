@@ -12,7 +12,7 @@ def check(shown_answer, hidden_answer,x):
     return "".join(results)
 
 def main():
-    hidden_answer = "apple"
+    hidden_answer = input("문제로 출제할 단어를 입력하세요=>")
     shown_answer = "_" *len(hidden_answer)
     trial=3
 
