@@ -24,17 +24,6 @@ def read_col(filename, col_name):
             dataset.append(float(tokens[col_idx]))
     return dataset
 
-def read_col_str(filename, col_name):
-    dataset=[]
-    with open(filename) as f:
-        lines=f.readlines()
-        header=[x.strip() for x in lines[0].split(",")]
-        col_idx=header.index(col_name)
-        for line in lines[1:]:
-            tokens=line.strip().split(",")
-            dataset.append(tokens[col_idx])
-    return dataset
-
 def main():
     tavg=read_col(filename, "tavg")
     year_tavg=np.array(tavg)
@@ -44,15 +33,6 @@ def main():
 
     tmin=read_col(filename, "tmin")
     year_tmin=np.array(tmin)
-
-    dates=read_col_str(filename, "year")
-    year_dates = []
-    for date in dates:
-        split_date = date.split("-")
-        year_str = split_date[0]
-        year_int = int(year_str)
-        year_dates.append(year_int)
-    year_dates = np.array(year_dates)
     
     plt.rcParams['font.family'] = ['NanumGothic', 'sans-serif']
     plt.rcParams['axes.unicode_minus'] = True
@@ -63,10 +43,11 @@ def main():
      
     plt.ylabel("Temperature(℃)")
     plt.xlabel("Year")
-    plt. xlim(1980,2023)
+    plt.xlim(1980,2023)
 
+    plt.title("<연 평균 기온>")
     plt.legend()
-    plt.savefig("./hw18/44years_temp.png")
+    plt.savefig("./hw18/years_temp.png")
 
 if __name__ == "__main__":
     main()
