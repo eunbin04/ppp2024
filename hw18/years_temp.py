@@ -44,6 +44,7 @@ def main():
     plt.ylabel("Temperature(℃)")
     plt.xlabel("Year")
     plt.xlim(1980,2023)
+    plt.ylim(5,35)
 
     plt.title("<연 평균 기온>")
     plt.legend()
