@@ -69,8 +69,8 @@ def handler(update, context):
             if passed_time >= 2:
                 people_front = user_number - (passed_time//2) - 1
             bot.send_message(chat_id=id, text=f"남은 대기인원은 {int(people_front)}명 입니다.")
-        elif people_front == 0:
-            bot.send_message(chat_id=id, text=f"더 이상 대기인원이 없습니다. {user_name} 님의 차례입니다.")
+            if people_front == 0:
+                bot.send_message(chat_id=id, text=f"{user_name} 님의 차례입니다.")
         else:
             bot.send_message(chat_id=id, text=f"먼저 대기번호를 확인해주세요.")
 
