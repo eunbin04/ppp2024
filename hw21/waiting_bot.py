@@ -53,7 +53,7 @@ def handler(update, context):
             times = waiting_time(user_dic['user_number'], user_dic['number_wait_time'])
             if times >= 60:
                 bot.send_message(chat_id=id, text=f"예상되는 남은 대기시간은 {times // 60}시간 {times - 60}분 입니다.")
-            elif times == 0:
+            elif times <= 0:
                 bot.send_message(chat_id=id, text=f"더 이상 남은 대기시간이 없습니다. {user_name} 님의 차례입니다.")
             else:
                 bot.send_message(chat_id=id, text=f"예상되는 남은 대기시간은 {times}분 입니다.")
