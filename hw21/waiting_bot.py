@@ -12,7 +12,9 @@ info_message = '''대기번호 및 시간을 안내해주는 <대기인원 알�
 
 - 대기번호 확인 : "번호" or "대기번호"
 - 예상 대기시간 확인 : "시간" or "대기시간"
-- 남은 인원 수 확인 : "인원" or "대기인원"'''
+- 남은 인원 수 확인 : "인원" or "대기인원"
+
+단, "취소" 입력 시 대기번호가 다시 부여됩니다. 주의하세요.'''
 bot.sendMessage(chat_id=id, text=info_message)
 
 updater = Updater(token=token, use_context=True)
@@ -23,7 +25,7 @@ updater.start_polling()
 user_dic={}
 
 def waiting_time(user_number, number_wait_time):
-    per_people_time = 0.5 
+    per_people_time = 2 
     people_front = user_number - 1
     total_waiting_time = people_front * per_people_time
 
@@ -48,7 +50,11 @@ def handler(update, context):
 
     elif (user_text == "시간") or (user_text == "대기시간"):  
         if 'user_number' in user_dic:
-            bot.send_message(chat_id=id, text=f"예상되는 남은 대기시간은 {waiting_time(user_number, number_wait_time)}분 입니다.")
+            times = waiting_time(user_dic['user_number'], user_dic['number_wait_time'])
+            if times >= 60:
+                bot.send_message(chat_id=id, text=f"예상되는 남은 대기시간은 {times // 60}시간 {times - 60}분 입니다.")
+            else:
+                bot.send_message(chat_id=id, text=f"예상되는 남은 대기시간은 {times}분 입니다.")
         else:
             bot.send_message(chat_id=id, text=f"먼저 대기번호를 확인해주세요.")
                              
@@ -58,12 +64,16 @@ def handler(update, context):
             number_wait_time = user_dic['number_wait_time']
             people_front = user_number - 1
             passed_time = current_time - number_wait_time
-            if passed_time >= 1:
-                people_front = user_number - (passed_time//0.5) - 1
+            if passed_time >= 2:
+                people_front = user_number - (passed_time//2) - 1
             bot.send_message(chat_id=id, text=f"남은 대기인원은 {int(people_front)}명 입니다.")
         else:
             bot.send_message(chat_id=id, text=f"먼저 대기번호를 확인해주세요.")
 
+    elif user_text in ["취소"]:
+        user_dic.clear()
+        bot.sendMessage(chat_id=id, text=info_message)
+    
     else: 
         bot.send_message(chat_id=id, text="올바른 단어를 입력해주세요.")  
  
