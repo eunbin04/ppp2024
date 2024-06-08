@@ -33,6 +33,7 @@ def waiting_time(user_number, number_wait_time):
     waiting_time = total_waiting_time - passed_time
     return int(waiting_time)
  
+ 
 def handler(update, context):
     user_id = update.message.from_user.id
     user_text = update.message.text 
