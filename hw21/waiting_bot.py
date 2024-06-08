@@ -43,7 +43,7 @@ def handler(update, context):
 
     if (user_text == "번호") or (user_text == "대기번호"): 
         if 'user_number' not in user_dic:
-            user_number = random.randint(1, 50)
+            user_number = random.randint(1, 20)
             user_dic['user_number'] = user_number
             user_dic['number_wait_time'] = current_time
         bot.send_message(chat_id=id, text=f"{user_name} 님의 대기번호는 {user_number}번 입니다.") 
