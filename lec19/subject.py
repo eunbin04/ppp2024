@@ -5,7 +5,7 @@ import pickle
 DB_FILE = "./lec19/subject_db.pkl"
 
 def read_db():
-    grade_db = []
+    grade_db = {}
     if not os.path.exists(DB_FILE):
         return grade_db
     
