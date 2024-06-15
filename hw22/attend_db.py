@@ -27,8 +27,8 @@ def main():
         date = (input("날짜를 입력하세요."))
         if date == "0":
             break
-        attend = input("출석 여부를 입력하세요.")
         name = input("이름을 입력하세요.")
+        attend = input("출석 여부를 입력하세요.")
         attend_days[date] = name, attend
     print(f"현재까지 목록은 {attend_days}입니다.")
 
